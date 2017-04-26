@@ -7,12 +7,18 @@
 //
 
 #import "StoryViewController.h"
+#import "HHRouter.h"
 
 @interface StoryViewController ()
 
 @end
 
 @implementation StoryViewController
+
++ (void)load
+{
+    [[HHRouter shared] map:@"/story/:book" toControllerClass:[self class]];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +33,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning

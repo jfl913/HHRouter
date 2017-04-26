@@ -15,7 +15,10 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[UIViewController alloc] init];
+    
+    UIViewController *userViewController = [[HHRouter shared] matchController:@"/user/913"];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userViewController];
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;
 }
